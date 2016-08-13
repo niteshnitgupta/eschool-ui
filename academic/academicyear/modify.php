@@ -386,7 +386,7 @@ $(function () {
 
 
   $.ajax({
-      url: "http://localhost/mustafa/AdminLTE-2.3.3/get_modules.php",
+      url: "http://52.26.82.79/apis/get_modules.php",
       success: function(data) {
         console.log("sdfsdfsd");
         var obj = JSON.parse(data);
