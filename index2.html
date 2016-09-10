@@ -335,7 +335,7 @@
     return str;
   }
 
-  $.get("http://localhost/mustafa/AdminLTE-2.3.3/get_modules.php", function(data){
+  $.get("http://52.26.82.79/apis/get_modules.php", function(data){
     var obj = JSON.parse(data);
     $.each(obj, function(i, item) {
       console.log(item);
