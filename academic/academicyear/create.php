@@ -301,13 +301,13 @@
                       <td width="10%"><i class="fa fa-pencil" style="padding-right:10px;"></i><i class="fa fa-minus"></i></td>
                     </tr>
                     <tr class="odd">
-                      <td width="10%">1</td>
+                      <td width="10%">3</td>
                       <td width="40%">2015</td>
                       <td width="40%">2016</td>
                       <td width="10%"><i class="fa fa-pencil" style="padding-right:10px;"></i><i class="fa fa-minus"></i></td>
                     </tr>
                     <tr class="even">
-                      <td width="10%">2</td>
+                      <td width="10%">4</td>
                       <td width="40%">2015</td>
                       <td width="40%">2016</td>
                       <td width="10%"><i class="fa fa-pencil" style="padding-right:10px;"></i><i class="fa fa-minus"></i></td>
@@ -386,7 +386,7 @@ $(function () {
 
 
   $.ajax({
-      url: "http://localhost/mustafa/AdminLTE-2.3.3/get_modules.php",
+      url: "http://52.26.82.79/apis/get_modules.php",
       success: function(data) {
         console.log("sdfsdfsd");
         var obj = JSON.parse(data);
