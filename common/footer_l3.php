@@ -59,7 +59,7 @@ $(function () {
 
 
   $.ajax({
-      url: "http://52.26.82.79/ui/get_modules.php",
+      url: "http://52.26.82.79/apis/get_modules.php",
       success: function(data) {
         var obj = JSON.parse(data);
         $.each(obj, function(i, item) {
