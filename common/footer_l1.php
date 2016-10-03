@@ -32,6 +32,9 @@
 
 
 <script>
+
+var baseUrl = "http://52.26.82.79/ui/"
+
 $(function () {
   function recursiveCall(obj) {
     var str = ""
@@ -73,7 +76,7 @@ $(function () {
             str = str + recursiveCall(item.child);
           } else {
             str = str +
-            "      <a href='" + item.url + "'>"+
+            "      <a href='" + baseUrl + item.url + "'>"+
             "        <i class='fa fa-th'></i> <span>" + item.title + "</span>"+
             "      </a>";
           }
