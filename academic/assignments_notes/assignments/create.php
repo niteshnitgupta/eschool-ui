@@ -1,5 +1,5 @@
 <?php
-include("../../common/header_l2.php");
+include("../../../common/header_l3.php");
 ?>
   <!-- =============================================== -->
 
@@ -8,12 +8,12 @@ include("../../common/header_l2.php");
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Assign Subjects
+        Assignment Details
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Subjects</a></li>
-        <li class="active">Assign Subjects</li>
+        <li><a href="#">Assignment Details</a></li>
+        <li class="active">Create</li>
       </ol>
     </section>
 
@@ -24,8 +24,7 @@ include("../../common/header_l2.php");
           <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title"><b>Assign Subjects</b></h3>
-
+              <h3 class="box-title"><b>Add New Assignment</b></h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                   <i class="fa fa-minus"></i></button>
@@ -35,7 +34,20 @@ include("../../common/header_l2.php");
             </div>
             <div class="box-body">
               <div class="form-group">
-                <label class="req">Course<span style="color:#DD0000">*</span></label>
+                <label class="req">Title <span style="color:#DD0000">*</span></label>
+                <input type="text" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label class="req">Description <span style="color:#DD0000">*</span></label>
+                <input type="text" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label class="req">Attachment <span style="color:#DD0000">*</span></label>
+                <input type="file"/>
+              </div>
+
+              <div class="form-group">
+                <label class="req">Course  <span style="color:#DD0000">*</span></label>
                 <select class="form-control select2">
                   <?php
                     for($i=2026; $i>2000; $i--)
@@ -48,7 +60,7 @@ include("../../common/header_l2.php");
                 </select>
               </div>
               <div class="form-group">
-                <label class="req">Batch<span style="color:#DD0000">*</span></label>
+                <label class="req">Batch  <span style="color:#DD0000">*</span></label>
                 <select class="form-control select2">
                   <?php
                     for($i=2026; $i>2000; $i--)
@@ -61,8 +73,8 @@ include("../../common/header_l2.php");
                 </select>
               </div>
               <div class="form-group">
-                <label class="req">Subjects<span style="color:#DD0000">*</span></label>
-                <select class="form-control select2" multiple="multiple">
+                <label class="req">Subject  <span style="color:#DD0000">*</span></label>
+                <select class="form-control select2">
                   <?php
                     for($i=2026; $i>2000; $i--)
                     {
@@ -73,6 +85,11 @@ include("../../common/header_l2.php");
                   ?>
                 </select>
               </div>
+              <div class="form-group">
+                <label class="req">Date Of Submission<span style="color:#DD0000">*</span></label>
+                <input type="text" class="form-control datepicker" id="submissiondate">
+              </div>
+              
 
               <div class="form-group">
                 <button class="btn btn-primary form-control">SAVE</button>
@@ -87,7 +104,7 @@ include("../../common/header_l2.php");
         <div class="col-md-6">
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title"><b>Existing Assigned Subjects</b></h3>
+              <h3 class="box-title"><b>Existing Assignments</b></h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -102,40 +119,32 @@ include("../../common/header_l2.php");
                   <thead>
                     <tr>
                       <th>Sl.No.</th>
+                      <th>Title</th>
                       <th>Course</th>
                       <th>Batch</th>
                       <th>Subject</th>
+                      <th>Date Of Submission</th>
                       <th>Manage</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr class="odd">
                       <td width="10%">1</td>
+                      <td width="10%">te</td>
                       <td width="20%">IV B.P.Th</td>
                       <td width="20%">IV</td>
-                      <td width="40%">Project discussion  -  Proj IV</td>
-                      <td width="5%"><i class="fa fa-times"></i></td>
+                      <td width="40%">Gen. Med. and Surg. Cond</td>
+                      <td width="40%">26-June-2016</td>
+                      <td width="10%"><i class="fa fa-pencil" style="padding-right:10px;"></i><i class="fa fa-minus"></i></td>
                     </tr>
                     <tr class="even">
-                      <td width="10%">2</td>
+                      <td width="10%">1</td>
+                      <td width="10%">te</td>
                       <td width="20%">IV B.P.Th</td>
                       <td width="20%">IV</td>
-                      <td width="40%">Neuroscience</td>
-                      <td width="5%"><i class="fa fa-times"></i></td>
-                    </tr>
-                    <tr class="odd">
-                      <td width="10%">3</td>
-                      <td width="20%">IV B.P.Th</td>
-                      <td width="20%">IV</td>
-                      <td width="40%">Community Health</td>
-                      <td width="5%"><i class="fa fa-times"></i></td>
-                    </tr>
-                    <tr class="even">
-                      <td width="10%">4</td>
-                      <td width="20%">IV B.P.Th</td>
-                      <td width="20%">IV</td>
-                      <td width="40%">Musculo</td>
-                      <td width="5%"><i class="fa fa-times"></i></td>
+                      <td width="40%">Gen. Med. and Surg. Cond</td>
+                      <td width="40%">26-June-2016</td>
+                      <td width="10%"><i class="fa fa-pencil" style="padding-right:10px;"></i><i class="fa fa-minus"></i></td>
                     </tr>
                   </tbody>
                 </table>
@@ -150,11 +159,15 @@ include("../../common/header_l2.php");
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<?php
-include("../../common/footer_l2.php");
-?>
+  <?php
+  include("../../../common/footer_l3.php");
+  ?>
 <script>
 $(function () {
   $(".select2").select2();
+
+  $('.datepicker').datepicker({
+      autoclose: true
+  });
 });
 </script>

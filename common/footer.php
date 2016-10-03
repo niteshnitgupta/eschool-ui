@@ -65,10 +65,9 @@
     return str;
   }
 
-  $.get("http://52.26.82.79/apis/get_modules.php", function(data){
+  $.get("http://localhost/ui/get_modules.php", function(data){
     var obj = JSON.parse(data);
     $.each(obj, function(i, item) {
-      console.log(item);
       var str = ""+
       "    <li>";
       if (item.child != null) {

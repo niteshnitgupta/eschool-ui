@@ -8,12 +8,12 @@ include("../../common/header_l2.php");
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Assign Subjects
+        Add Event
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Subjects</a></li>
-        <li class="active">Assign Subjects</li>
+        <li><a href="#">Events</a></li>
+        <li class="active">Add Event</li>
       </ol>
     </section>
 
@@ -24,7 +24,7 @@ include("../../common/header_l2.php");
           <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title"><b>Assign Subjects</b></h3>
+              <h3 class="box-title"><b>Add Event</b></h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -35,45 +35,51 @@ include("../../common/header_l2.php");
             </div>
             <div class="box-body">
               <div class="form-group">
-                <label class="req">Course<span style="color:#DD0000">*</span></label>
-                <select class="form-control select2">
-                  <?php
-                    for($i=2026; $i>2000; $i--)
-                    {
-                  ?>
-                      <option><?php echo $i; ?></option>
-                  <?php
-                    }
-                  ?>
-                </select>
+                <label class="req">Event Name <span style="color:#DD0000">*</span></label>
+                <input type="text" class="form-control"/>
               </div>
               <div class="form-group">
-                <label class="req">Batch<span style="color:#DD0000">*</span></label>
-                <select class="form-control select2">
-                  <?php
-                    for($i=2026; $i>2000; $i--)
-                    {
-                  ?>
-                      <option><?php echo $i; ?></option>
-                  <?php
-                    }
-                  ?>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="req">Subjects<span style="color:#DD0000">*</span></label>
-                <select class="form-control select2" multiple="multiple">
-                  <?php
-                    for($i=2026; $i>2000; $i--)
-                    {
-                  ?>
-                      <option><?php echo $i; ?></option>
-                  <?php
-                    }
-                  ?>
-                </select>
+                <label class="req">Holiday ? <span style="color:#DD0000"><input type="checkbox"/></span></label>
               </div>
 
+              <div class="form-group">
+                <label class="req">Event Type<span style="color:#DD0000">*</span></label>
+                <select class="form-control select2">
+                  <?php
+                    for($i=2026; $i>2000; $i--)
+                    {
+                  ?>
+                      <option><?php echo $i; ?></option>
+                  <?php
+                    }
+                  ?>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="req">Description <span style="color:#DD0000">*</span></label>
+                <textarea class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="req">Start Date<span style="color:#DD0000">*</span></label>
+                <input type="text" class="form-control datepicker" id="startdate">
+              </div>
+              <div class="form-group">
+                <label class="req">End Date<span style="color:#DD0000">*</span></label>
+                <input type="text" class="form-control datepicker" id="enddate">
+              </div>
+              <div class="form-group">
+                <label class="req">Organizer / Incharge Name <span style="color:#DD0000">*</span></label>
+                <input type="text" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label class="req">Event For<span style="color:#DD0000">*</span></label>
+                <select class="form-control select2">
+                  <option>Common To All</option>
+                  <option>Selected Batch</option>
+                  <option>Selected Department</option>
+                </select>
+              </div>
+              
               <div class="form-group">
                 <button class="btn btn-primary form-control">SAVE</button>
               </div>
@@ -87,7 +93,7 @@ include("../../common/header_l2.php");
         <div class="col-md-6">
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title"><b>Existing Assigned Subjects</b></h3>
+              <h3 class="box-title"><b>Existing Events</b></h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -102,39 +108,26 @@ include("../../common/header_l2.php");
                   <thead>
                     <tr>
                       <th>Sl.No.</th>
-                      <th>Course</th>
-                      <th>Batch</th>
-                      <th>Subject</th>
+                      <th>Name</th>
+                      <th>Holiday</th>
+                      <th>Type</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Organizer/Incharge</th>
+                      <th>Event For</th>
                       <th>Manage</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr class="odd">
                       <td width="10%">1</td>
-                      <td width="20%">IV B.P.Th</td>
-                      <td width="20%">IV</td>
-                      <td width="40%">Project discussion  -  Proj IV</td>
-                      <td width="5%"><i class="fa fa-times"></i></td>
-                    </tr>
-                    <tr class="even">
-                      <td width="10%">2</td>
-                      <td width="20%">IV B.P.Th</td>
-                      <td width="20%">IV</td>
-                      <td width="40%">Neuroscience</td>
-                      <td width="5%"><i class="fa fa-times"></i></td>
-                    </tr>
-                    <tr class="odd">
-                      <td width="10%">3</td>
-                      <td width="20%">IV B.P.Th</td>
-                      <td width="20%">IV</td>
-                      <td width="40%">Community Health</td>
-                      <td width="5%"><i class="fa fa-times"></i></td>
-                    </tr>
-                    <tr class="even">
-                      <td width="10%">4</td>
-                      <td width="20%">IV B.P.Th</td>
-                      <td width="20%">IV</td>
-                      <td width="40%">Musculo</td>
+                      <td width="20%">Neuro PT</td>
+                      <td width="2%">Yes</td>
+                      <td width="20%">Cool Dude</td>
+                      <td width="40%">23-Oct-2018</td>
+                      <td width="40%">23-Oct-2018</td>
+                      <td width="40%">Mustafa</td>
+                      <td width="40%">Common To All</td>
                       <td width="5%"><i class="fa fa-times"></i></td>
                     </tr>
                   </tbody>
@@ -156,5 +149,8 @@ include("../../common/footer_l2.php");
 <script>
 $(function () {
   $(".select2").select2();
+  $('.datepicker').datepicker({
+      autoclose: true
+  });
 });
 </script>
