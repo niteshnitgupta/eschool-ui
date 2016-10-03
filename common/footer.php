@@ -65,7 +65,7 @@
     return str;
   }
 
-  $.get("http://localhost/ui/get_modules.php", function(data){
+  $.get("http://52.26.82.79/ui/get_modules.php", function(data){
     var obj = JSON.parse(data);
     $.each(obj, function(i, item) {
       var str = ""+
