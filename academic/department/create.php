@@ -1,5 +1,39 @@
 <?php
+
+include("../../../apis/db_connection.php");
+
+if ( isset ($_POST["id"]) && $_POST["id"] != null  )
+{
+	$id = $_POST['id'] ;
+}
+
+
+if ( isset ($_POST["dept_name"]) && $_POST["dept_name"] != null  )
+{
+	$name = $_POST['dept_name'] ;
+}
+
+if ( isset( $name ) )
+{
+	if ( isset($id)  )
+	{
+		$query = "UPDATE departments set name='" .$name. "' where id = " .$id. " ;" ;
+		echo $query ;
+		$result = $conn->query($query);
+	}
+	else
+	{
+		$institute_id = 1 ;
+		$query = "INSERT INTO departments ( name , institute ) values ( '" .$name. "' , " .$institute_id. " ) ;" ;
+		echo $query ;
+		$result = $conn->query($query);		
+	}
+	
+}
+
 include("../../common/header_l2.php");
+
+
 ?>
 <!-- =============================================== -->
 
@@ -33,17 +67,28 @@ include("../../common/header_l2.php");
                   <i class="fa fa-times"></i></button>
               </div>
             </div>
-            <div class="box-body">
-              <div class="form-group">
-                <label class="req">Department Name <span style="color:#DD0000">*</span></label>
-                <input type="text" class="form-control"/>
-              </div>
+            
+			<form method="post">
+				<div class="box-body">
+				  <div class="form-group">
+					<label class="req">Department Name <span style="color:#DD0000">*</span></label>
+					<input type="text" class="form-control" name ="dept_name"/>
+					<?php 
+					if (isset($id ))
+					{
+						echo '<input type="hidden" class="form-control" name ="id" value= "' .$id. '" /> ' ;
+					}
+					?>
 
-              <div class="form-group">
-                <button class="btn btn-primary form-control">SAVE</button>
-              </div>
-            </div>
-            <!-- /.box-body -->
+					
+				  </div>
+
+				  <div class="form-group">
+					<button class="btn btn-primary form-control">SAVE</button>
+				  </div>
+				</div>
+				<!-- /.box-body -->
+			</form>
           </div>
           <!-- /.box -->
         </div>
@@ -70,26 +115,47 @@ include("../../common/header_l2.php");
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="odd">
-                      <td width="10%">1</td>
-                      <td width="40%">Musculoskeletal PT</td>
-                      <td width="10%"><i class="fa fa-pencil" style="padding-right:10px;"></i></td>
-                    </tr>
-                    <tr class="even">
-                      <td width="10%">2</td>
-                      <td width="40%">Community PT</td>
-                      <td width="10%"><i class="fa fa-pencil" style="padding-right:10px;"></i></td>
-                    </tr>
-                    <tr class="odd">
-                      <td width="10%">3</td>
-                      <td width="40%">Neuro PT</td>
-                      <td width="10%"><i class="fa fa-pencil" style="padding-right:10px;"></i></td>
-                    </tr>
-                    <tr class="even">
-                      <td width="10%">4</td>
-                      <td width="40%">CardioVascular and Respiratory PT</td>
-                      <td width="10%"><i class="fa fa-pencil" style="padding-right:10px;"></i></td>
-                    </tr>
+				  
+				  <?php 
+				  
+				  $query = "select * from departments" ;
+				  $result = $conn->query($query);
+				  
+				  if ($result)
+				  {
+					  $i = 0 ;
+					  while ( $current_row = $result->fetch_assoc() )
+					  {
+						  $i++ ;
+						  echo '<tr class="odd">
+						  <td width="10%">'. $i .'</td>
+						  <td width="40%">'. $current_row['name'] .'</td>
+						  <td width="10%">
+						  <form method = "POST">
+						  
+							<input type="hidden" class="form-control" name ="id" value= "' .$current_row['id']. '" />
+							<input type="hidden" class="form-control" name ="dept_name" value= "' .$current_row['name']. '" />
+							<input type="hidden" class="form-control" name ="action" value= "E" />
+							
+							<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+							<i class="fa fa-pencil" style="padding-right:10px;"></i></button>
+						  </form>
+						  <form method = "POST">
+						  
+							<input type="hidden" class="form-control" name ="id" value= "' .$current_row['id']. '" />
+							<input type="hidden" class="form-control" name ="dept_name" value= "' .$current_row['name']. '" />
+							<input type="hidden" class="form-control" name ="action" value= "D" />
+
+							
+							<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+							<i class="fa fa-minus"></i></button>
+						  </form>
+						  </td>
+						  </tr>' ;
+					  }
+				  }
+					?>
+				  
                   </tbody>
                 </table>
               </div>
